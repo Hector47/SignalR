@@ -1,7 +1,9 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. See License.md in the project root for license information.
 
 using System.Collections.Generic;
+#if !PORTABLE
 using System.Collections.Specialized;
+#endif
 using System.Net;
 #if (NET4 || NET45)
 using System.Security.Cryptography.X509Certificates;
@@ -29,7 +31,7 @@ namespace Microsoft.AspNet.SignalR.Client.Http
         /// </summary>
         CookieContainer CookieContainer { get; set; }
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !PORTABLE
         /// <summary>
         /// The proxy information for this request.
         /// </summary>

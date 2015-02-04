@@ -229,7 +229,7 @@ namespace Microsoft.AspNet.SignalR.Client
         /// </summary>
         public IDictionary<string, string> Headers { get; private set; }
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !PORTABLE
         /// <summary>
         /// Gets of sets proxy information for the connection.
         /// </summary>
@@ -697,7 +697,7 @@ namespace Microsoft.AspNet.SignalR.Client
                 request.CookieContainer = CookieContainer;
             }
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !PORTABLE
             if (Proxy != null)
             {
                 request.Proxy = Proxy;
@@ -722,7 +722,7 @@ namespace Microsoft.AspNet.SignalR.Client
 #endif
             }
 
-#if NETFX_CORE
+#if NETFX_CORE || PORTABLE
             return String.Format(CultureInfo.InvariantCulture, "{0}/{1} ({2})", client, _assemblyVersion, "Unknown OS");
 #else
             return String.Format(CultureInfo.InvariantCulture, "{0}/{1} ({2})", client, _assemblyVersion, Environment.OSVersion);
@@ -779,7 +779,7 @@ namespace Microsoft.AspNet.SignalR.Client
                 Debug.WriteLine(value);
             }
 
-#if NETFX_CORE
+#if NETFX_CORE || PORTABLE
             public override void Write(char value)
             {
                 // This is wrong we don't call it

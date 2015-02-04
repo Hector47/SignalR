@@ -2,7 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+#if !PORTABLE
 using System.Collections.Specialized;
+#endif
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;

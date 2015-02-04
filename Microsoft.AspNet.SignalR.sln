@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.AspNet.SignalR.Sq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.AspNet.SignalR.Client.Silverlight.Sample", "samples\Microsoft.AspNet.SignalR.Client.Silverlight.Sample\Microsoft.AspNet.SignalR.Client.Silverlight.Sample.csproj", "{1E14A334-4346-4C27-8D67-497632CF8974}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.AspNet.SignalR.Client.Portable", "src\Microsoft.AspNet.SignalR.Client.Portable\Microsoft.AspNet.SignalR.Client.Portable.csproj", "{7E42F9C2-2A3C-4806-ACBC-D710496960FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -537,6 +539,20 @@ Global
 		{1E14A334-4346-4C27-8D67-497632CF8974}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1E14A334-4346-4C27-8D67-497632CF8974}.Release|x64.ActiveCfg = Release|Any CPU
 		{1E14A334-4346-4C27-8D67-497632CF8974}.Release|x86.ActiveCfg = Release|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Release|x64.ActiveCfg = Release|Any CPU
+		{7E42F9C2-2A3C-4806-ACBC-D710496960FB}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

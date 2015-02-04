@@ -16,10 +16,10 @@ namespace Microsoft.AspNet.SignalR.Client.Http
 
         private IDictionary<string, Action<HttpWebRequest, string>> _restrictedHeadersSet = new Dictionary<string, Action<HttpWebRequest, string>>() {
                                                                         { HttpRequestHeader.Accept.ToString(), (request, value) => { request.Accept = value; } },                                                                       
-                                                                        { HttpRequestHeader.ContentType.ToString(), (request, value) => { request.ContentType = value; } },
+                                                                        { HttpRequestHeader.ContentType.ToString(), (request, value) => { request.ContentType = value; } },                                                                                
+#if (!WINDOWS_PHONE && !SILVERLIGHT && !PORTABLE)
                                                                         { HttpRequestHeader.ContentLength.ToString(), (request, value) => { request.ContentLength = Int32.Parse(value, CultureInfo.CurrentCulture); } }, 
-                                                                        { HttpRequestHeader.UserAgent.ToString(), (request, value) => { request.UserAgent = value; } },
-#if (!WINDOWS_PHONE && !SILVERLIGHT)                                                                                                                                               
+                                                                        { HttpRequestHeader.UserAgent.ToString(), (request, value) => { request.UserAgent = value; } },                                                                                                               
                                                                         { HttpRequestHeader.Connection.ToString(), (request, value) => { request.Connection = value; } },
                                                                         { HttpRequestHeader.Date.ToString(), (request, value) => {request.Date = DateTime.Parse(value, CultureInfo.CurrentCulture); } },
                                                                         { HttpRequestHeader.Expect.ToString(), (request, value) => {request.Expect = value;} },
@@ -34,7 +34,7 @@ namespace Microsoft.AspNet.SignalR.Client.Http
         {
             _request = request;
         }
-
+#if !PORTABLE
         public string UserAgent
         {
             get
@@ -46,7 +46,21 @@ namespace Microsoft.AspNet.SignalR.Client.Http
                 _request.UserAgent = value;
             }
         }
+#else
+        private string _userAgent = "";
+        public string UserAgent
+        {
+            get
+            {
+                return _userAgent;
+            }
+            set
+            {
+                _userAgent = value;
+            }
+        }
 
+#endif
         public ICredentials Credentials
         {
             get
@@ -83,7 +97,7 @@ namespace Microsoft.AspNet.SignalR.Client.Http
             }
         }
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !PORTABLE
         public IWebProxy Proxy
         {
             get
@@ -113,7 +127,7 @@ namespace Microsoft.AspNet.SignalR.Client.Http
             {
                 if (!_restrictedHeadersSet.Keys.Contains(headerEntry.Key))
                 {
-#if (!WINDOWS_PHONE && !SILVERLIGHT)
+#if (!WINDOWS_PHONE && !SILVERLIGHT && !PORTABLE)
                     _request.Headers.Add(headerEntry.Key, headerEntry.Value);
 #endif
                 }
